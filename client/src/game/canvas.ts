@@ -1,14 +1,12 @@
+import { initializeEngine } from './engine'
+import { activateRow } from './row'
+
 const ROWS_NUMBER = 8
 
 export const createCanvas = () => {
   const canvasHeight = getCanvasRowHeight()
-  console.log(canvasHeight)
 
   const rowItems = Array.from(Array(ROWS_NUMBER).keys())
-  console.log(
-    '🚀 ~ file: canvas.ts ~ line 8 ~ createCanvas ~ rowItems',
-    rowItems
-  )
 
   rowItems.forEach((_, index) => {
     createCanvasRow(index, canvasHeight)
@@ -28,4 +26,5 @@ const createCanvasRow = (index: number, height: number): void => {
     `
 
   wrapper?.insertAdjacentHTML('beforeend', element)
+  activateRow(index)
 }
