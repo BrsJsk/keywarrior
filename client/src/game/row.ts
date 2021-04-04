@@ -1,11 +1,20 @@
-import { GET_WORD } from './engine'
-import { insertWord } from './word'
+import { interval } from 'rxjs'
+import { getRandomWord, insertWord } from './word'
 
-export const activateRow = (index: number): void => {
-  console.log('activating', index)
+export class Row {
+  GET_WORD_INTERVAL = 2000
+  row: number
+  constructor(row: number) {
+    this.row = row
+    console.log('loadedd', row)
+    this.generateWord()
+  }
 
-  GET_WORD.subscribe((word) => {
-    console.log(word)
-    insertWord(word, index)
-  })
+  generateWord = (): void => {
+    interval(this.GET_WORD_INTERVAL).subscribe(() => {
+      const word = getRandomWord()
+
+      insertWord(word, this.row)
+    })
+  }
 }

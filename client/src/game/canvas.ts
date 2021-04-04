@@ -1,5 +1,4 @@
-import { initializeEngine } from './engine'
-import { activateRow } from './row'
+import { Row } from './row'
 
 const ROWS_NUMBER = 8
 
@@ -26,5 +25,6 @@ const createCanvasRow = (index: number, height: number): void => {
     `
 
   wrapper?.insertAdjacentHTML('beforeend', element)
-  activateRow(index)
+
+  const row = new Row(index)
 }
