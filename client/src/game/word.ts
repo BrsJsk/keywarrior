@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import randomWords from 'random-words'
+import { getEnteredWord } from './tracker'
+
 export interface WordCount {
   id: string
   word: string
@@ -7,6 +9,8 @@ export interface WordCount {
 }
 
 let words: WordCount[] = []
+
+getEnteredWord.subscribe((d) => {})
 
 export const getRandomWord = (): string => randomWords()
 
