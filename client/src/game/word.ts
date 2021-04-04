@@ -17,6 +17,13 @@ export const insertWord = (word: string, row: number): WordCount | null => {
   if (rowElement) {
     rowElement.insertAdjacentHTML('beforeend', wordElement)
 
+    // remove old element after animation is done
+    // it is no longer visible and we clear it from DOM
+    const newElem = document.getElementById(id)
+    newElem?.onanimationend = () => {
+      newElem?.remove()
+    }
+
     return {
       word,
       row,
