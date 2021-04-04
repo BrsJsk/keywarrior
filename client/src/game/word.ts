@@ -6,6 +6,8 @@ export interface WordCount {
   row: number
 }
 
+let words: WordCount[] = []
+
 export const getRandomWord = (): string => randomWords()
 
 export const insertWord = (word: string, row: number): WordCount | null => {
@@ -15,13 +17,14 @@ export const insertWord = (word: string, row: number): WordCount | null => {
   const wordElement = `<p id="${id}">${word}</p>`
 
   if (rowElement) {
+    addWordToCollection(id, row, word)
     rowElement.insertAdjacentHTML('beforeend', wordElement)
 
     // remove old element after animation is done
     // it is no longer visible and we clear it from DOM
     const newElem = document.getElementById(id)
     newElem?.onanimationend = () => {
-      newElem?.remove()
+      removeWord(newElem, id)
     }
 
     return {
@@ -32,4 +35,24 @@ export const insertWord = (word: string, row: number): WordCount | null => {
   }
 
   return null
+}
+
+const addWordToCollection = (id: string, row: number, word: string): void => {
+  words = [
+    ...words,
+    {
+      id,
+      row,
+      word,
+    },
+  ]
+}
+
+const removeWordFromCollection = (id: string): void => {
+  words = words.filter((collection) => collection.id !== id)
+}
+
+const removeWord = (newElem: HTMLElement | null, id: string) => {
+  newElem?.remove()
+  removeWordFromCollection(id)
 }
