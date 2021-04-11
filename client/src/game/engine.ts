@@ -1,8 +1,15 @@
 import { Subject } from 'rxjs'
-import { createCanvas } from './canvas'
+import { tap } from 'rxjs/operators'
+import { clearCanvas, createCanvas } from './canvas'
+import { resetScore } from './score'
 import { trackKeyboardPress } from './tracker'
 
-const STOP_ENGINE = new Subject<boolean>()
+export const STOP_ENGINE = new Subject<boolean>().pipe(
+  tap(() => {
+    resetScore()
+    clearCanvas()
+  })
+)
 
 export const initializeEngine = () => {
   createCanvas()

@@ -5,7 +5,3 @@ import './styles/main.scss'
 window.onload = () => {
   initializeSidebar()
 }
-
-window.onclose = () => {
-  // stopEngine()
-}

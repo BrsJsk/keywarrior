@@ -8,3 +8,9 @@ export const incrementScore = (increment = 1): void => {
 
   getScore$.next(_score)
 }
+
+export const resetScore = (): void => {
+  _score = 0
+
+  getScore$.next(_score)
+}

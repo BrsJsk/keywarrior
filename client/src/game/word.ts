@@ -4,6 +4,7 @@ import { getEnteredWord } from './tracker'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { incrementScore } from './score'
+import { STOP_ENGINE } from './engine'
 
 export interface WordCount {
   id: string
@@ -30,13 +31,15 @@ export const insertWord = (word: string, row: number): WordCount | null => {
     destroy$.next()
   }
 
-  getEnteredWord.pipe(takeUntil(destroy$)).subscribe((enteredWord) => {
-    // word is entered and score is increased
-    if (enteredWord.includes(word)) {
-      removeElement()
-      incrementScore()
-    }
-  })
+  getEnteredWord
+    .pipe(takeUntil(destroy$), takeUntil(STOP_ENGINE))
+    .subscribe((enteredWord) => {
+      // word is entered and score is increased
+      if (enteredWord.includes(word)) {
+        removeElement()
+        incrementScore()
+      }
+    })
 
   if (rowElement) {
     addWordToCollection(id, row, word)

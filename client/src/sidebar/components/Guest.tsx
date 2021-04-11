@@ -1,11 +1,11 @@
-import { initializeEngine } from '../../game'
+import { PlayingStatus } from './PlayingStatus'
 import { Score } from './Score'
 
 export const Guest = () => {
   return (
     <div>
       <h1 className="auth-status">Guest</h1>
-      <button onClick={initializeEngine}>Play!</button>
+      <PlayingStatus />
       <br />
       <Score />
     </div>

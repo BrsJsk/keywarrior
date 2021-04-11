@@ -2,6 +2,14 @@ import { Row } from './row'
 
 const ROWS_NUMBER = 8
 
+export const clearCanvas = () => {
+  const wrapper = document.getElementById('canvas_wrapper')
+
+  if (wrapper) {
+    wrapper.innerHTML = null
+  }
+}
+
 export const createCanvas = () => {
   const canvasHeight = getCanvasRowHeight()
 
