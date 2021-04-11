@@ -6,7 +6,6 @@ export class Row {
   row: number
   constructor(row: number) {
     this.row = row
-    console.log('loadedd', row)
     this.generateWord()
   }
 
