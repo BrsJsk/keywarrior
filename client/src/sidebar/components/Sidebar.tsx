@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AuthType } from '../../domain/types/auth'
+import { AuthType } from '../../domain/auth'
 import { Auth } from './Auth'
 import { Guest } from './Guest'
 

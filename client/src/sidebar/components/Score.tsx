@@ -1,3 +1,6 @@
+import { useScore } from '../hooks/useScore'
+
 export const Score = () => {
-  return <div className="score-wrapper">Score: 12233</div>
+  const { score } = useScore()
+  return <div className="score-wrapper">Score: {score}</div>
 }

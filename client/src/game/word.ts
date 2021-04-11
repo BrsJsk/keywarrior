@@ -3,6 +3,7 @@ import randomWords from 'random-words'
 import { getEnteredWord } from './tracker'
 import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
+import { incrementScore } from './score'
 
 export interface WordCount {
   id: string
@@ -30,8 +31,10 @@ export const insertWord = (word: string, row: number): WordCount | null => {
   }
 
   getEnteredWord.pipe(takeUntil(destroy$)).subscribe((enteredWord) => {
+    // word is entered and score is increased
     if (enteredWord.includes(word)) {
       removeElement()
+      incrementScore()
     }
   })
 

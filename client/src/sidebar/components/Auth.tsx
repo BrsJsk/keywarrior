@@ -1,4 +1,4 @@
-import { AuthType } from '../../domain/types/auth'
+import { AuthType } from '../../domain/auth'
 
 export interface AuthProps {
   onAuthenticate: (type: AuthType) => void
