@@ -7,4 +7,27 @@
   top: 0;
   z-index: 10;
   border-right: 1px solid rgb(61, 60, 60);
+
+  .auth-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    button {
+      background: black;
+      border: 2px solid blue;
+      color: white;
+      margin-bottom: 4px;
+    }
+  }
+
+  .auth-status {
+    color: white;
+    font-size: 18px;
+  }
+
+  .score-wrapper {
+    border: 2px solid green;
+    color: white;
+    margin: 4px;
+  }
 }

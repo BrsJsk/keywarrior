@@ -6,7 +6,7 @@ export interface AuthProps {
 
 export const Auth = ({ onAuthenticate }: AuthProps) => {
   return (
-    <div>
+    <div className="auth-options">
       <button onClick={() => onAuthenticate('logged')}>Login</button>
       <button>Register</button>
       <button onClick={() => onAuthenticate('guest')}>Guest</button>
