@@ -9,7 +9,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
     "@types/random-words": "^1.1.0",
+    "@types/react": "^17.0.3",
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
@@ -18,12 +23,15 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
+    "parcel-bundler": "^1.12.5",
     "prettier": "^2.2.1",
     "sass": "^1.32.8",
     "typescript": "^4.2.3"
   },
   "dependencies": {
     "random-words": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rxjs": "^6.6.7",
     "uuid": "^8.3.2"
   }

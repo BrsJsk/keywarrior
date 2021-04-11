@@ -1,8 +1,11 @@
-import { createCanvas, initializeEngine, stopEngine } from './game'
+import '@babel/polyfill'
+import { initializeEngine, stopEngine } from './game'
+import { initializeSidebar } from './sidebar'
 import './styles/main.scss'
 
 window.onload = () => {
-  initializeEngine()
+  initializeSidebar()
+  // initializeEngine()
 }
 
 window.onclose = () => {
