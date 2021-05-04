@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
-import { Sidebar } from './components/Sidebar'
+import { App } from './components/App'
 
 export const initializeSidebar = () => {
   const mountNode = document.getElementById('side_content')
-  ReactDOM.render(<Sidebar />, mountNode)
+  ReactDOM.render(<App />, mountNode)
 }

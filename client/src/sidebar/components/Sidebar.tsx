@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { AuthType } from '../../domain/auth'
 import { Auth } from './Auth'
-import { Guest } from './Guest'
+import { useHistory } from 'react-router-dom'
 
 export const Sidebar = (): JSX.Element => {
   const [isAuth, setAuth] = useState<AuthType>()
+  const history = useHistory()
 
   if (isAuth === 'guest') {
-    return <Guest />
+    history.push('guest')
   }
 
   if (isAuth === 'logged') {

@@ -1,6 +1,15 @@
 import { useScore } from '../hooks/useScore'
+import Chip from '@material-ui/core/Chip'
 
 export const Score = () => {
   const { score } = useScore()
-  return <div className="score-wrapper">Score: {score}</div>
+
+  return (
+    <Chip
+      label={`Score: ${score}`}
+      color="primary"
+      variant="outlined"
+      style={{ width: '100%' }}
+    />
+  )
 }

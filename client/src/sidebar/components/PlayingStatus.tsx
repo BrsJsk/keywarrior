@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { initializeEngine, stopEngine } from '../../game'
+import { Button } from '@material-ui/core';
 
 export const PlayingStatus = () => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -11,11 +12,13 @@ export const PlayingStatus = () => {
       stopEngine()
     }
   }, [isPlaying])
+
+
   return (
     <div>
-      <button onClick={() => setIsPlaying(!isPlaying)}>
+       <Button color="primary" onClick={() => setIsPlaying(!isPlaying)}>
         {isPlaying ? 'Stop' : 'Play'}
-      </button>
+      </Button>
     </div>
   )
 }

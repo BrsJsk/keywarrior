@@ -1,5 +1,5 @@
-import { PlayingStatus } from './PlayingStatus'
-import { Score } from './Score'
+import { PlayingStatus } from '../components/PlayingStatus'
+import { Score } from '../components/Score'
 
 export const Guest = () => {
   return (
